@@ -1,5 +1,6 @@
 defaults:
   - _self_
+  # - .env
 
 project_name: "asr-rag-tts-pipeline"
 
@@ -13,10 +14,13 @@ rag:
   embedding_model_name: "all-MiniLM-L6-v2"
   vector_store_path: "data/vector_store"
 
-tokenizers:
-  parallelism: false
-
 llm:
   type: "lm-studio" # ollama or lm-studio
   model: "qwen3-4b-thinking-2507-mlx"
   api_base: "http://localhost:1234/v1" # lm-studio: 1234, ollama: 11434
+
+tts:
+  model_name: "microsoft/speecht5_tts"
+  output_path: "outputs/response.wav"
+  speaker_embeddings_model: "Matthijs/cmu-arctic-xvectors"
+  speaker_index: 7306
