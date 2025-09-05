@@ -2,3 +2,8 @@ defaults:
   - _self_
 
 project_name: "asr-rag-tts-pipeline"
+
+asr:
+  audio_path: "data/20.mp3"
+  model_name: "large-v3"
+  chunk_length_s: 30
