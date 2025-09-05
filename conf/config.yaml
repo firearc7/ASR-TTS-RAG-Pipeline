@@ -4,6 +4,19 @@ defaults:
 project_name: "asr-rag-tts-pipeline"
 
 asr:
-  audio_path: "data/20.mp3"
-  model_name: "large-v3"
+  audio_path: "data/question.m4a"
+  model_name: "base"
   chunk_length_s: 30
+
+rag:
+  docs_path: "data/docs"
+  embedding_model_name: "all-MiniLM-L6-v2"
+  vector_store_path: "data/vector_store"
+
+tokenizers:
+  parallelism: false
+
+llm:
+  type: "lm-studio" # ollama or lm-studio
+  model: "qwen3-4b-thinking-2507-mlx"
+  api_base: "http://localhost:1234/v1" # lm-studio: 1234, ollama: 11434
