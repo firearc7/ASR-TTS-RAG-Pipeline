@@ -3,9 +3,18 @@ defaults:
   # - .env
 
 project_name: "asr-rag-tts-pipeline"
+prompt: |
+  You must not use any markdown, and you must only use english characters and punctuations. So for numbers use "one", "two", "three", etc. and not "1", "2", "3", etc.
+  Answer the following question, based only on the provided context:
+
+  <context>
+  {context}
+  </context>
+
+  Question: {input}
 
 asr:
-  audio_path: "data/question.m4a"
+  audio_path: "data/audio/question.m4a"
   model_name: "base"
   chunk_length_s: 30
 

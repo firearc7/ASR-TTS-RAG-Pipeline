@@ -37,13 +37,7 @@ def main(cfg: DictConfig) -> None:
         openai_api_key="nope",
     )
 
-    prompt = ChatPromptTemplate.from_template("""Answer the following question without using any markdown, based only on the provided context:
-
-    <context>
-    {context}
-    </context>
-
-    Question: {input}""")
+    prompt = ChatPromptTemplate.from_template(cfg.prompt)
 
     document_chain = create_stuff_documents_chain(llm, prompt)
     retrieval_chain = create_retrieval_chain(retriever, document_chain)
